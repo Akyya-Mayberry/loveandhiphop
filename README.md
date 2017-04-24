@@ -1,60 +1,47 @@
-# Group 3 Project - *Name of App Here*
+# Group 3 Project - HiphopDate
 
-Time spent: **X** hours spent in total
 
 ## User Stories
 
-The following **required** functionality is completed:
 
 - [ ] Become A Member
-   - [ ] Dragging anywhere in the view should reveal the menu.
-   - [ ] The menu should include links to your profile, the home timeline, and the mentions view.
-   - [ ] The menu can look similar to the example or feel free to take liberty with the UI.
-- [ ] Date/Flirt
-   - [ ] Contains the user header view
-   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+   - [ ] To become a member user must pass the Hiphop quiz. Show HipHop Quiz along with Intro of the app on the first page for
+         unregistered users.
+   - [ ] If user passes quiz, Show the "Login with Facebook" option.
+   - [ ] Once user redirected back from facebook after succesful authentication, show the all the registration fields with              pre-filled data and allow users to update the information. Once user clicks on update/Agree button insert/update the          information in Parse Server.
+   
+- [ ] Tab Bar options on Users Home screen  
+- [ ] Date/Flirt/Matches
+   - [ ] If user has a valid session, Display all the potential matches according to Match criteria.
+   - [ ] Provide the basic info in the main page like Name, Age, Location, Top Hip hop liked songs.
+   - [ ] Allow users to send a friend(??) requests to potential matches.
+   - [ ] if both the users mutually like then show the email id on the screen.
 - [ ] Open Chat
-   - [ ] Tapping on a user image should bring up that user's profile page
+   - [ ] Implement a discussion board or open chat using Parse and allow all the users to have interaction open discussions
 - [ ] View current trends in fashion, automotive, etc
-   - [ ] Tapping on a user image should bring up that user's profile page
+   - [ ] An admin controlled static page with all the top trends in fashion, automative etc
 - [ ] Listen and rate new music
-   - [ ] Tapping on a user image should bring up that user's profile page
+   - [ ] Top 10 playlist of the week from Hip Hop world and allow users to play
+   - [ ] Top listener view can show the top users who are listening this song with "Number of times played" count
 
 The following **optional** features are implemented:
 
 - [ ] Personalize chat/messaging between users
-   - [ ] Implement the paging view for the user description.
-   - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-   - [ ] Pulling down the profile page should blur and resize the header image.
+   - [ ] If both the users are mutually liked, allow the users to have a personalized chat. Implement it using "Push                    Notifications". Send the remote notifications and show it in the app.
 - [ ] Filters for dating
-   - [ ] Implement the paging view for the user description.
-   - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-   - [ ] Pulling down the profile page should blur and resize the header image.
+   - [ ] Display the matches based on different Matching criterias like top listening songs, location etc.
 - [ ] Events section
-   - [ ] Implement the paging view for the user description.
-   - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-   - [ ] Pulling down the profile page should blur and resize the header image.
+   - [ ] Allow users to post a Hiphop event information.
+   - [ ] Show all the impacted/target users (May be like to only users in that particular location)
 - [ ] Users can upload their own images to the public swag section to be rated
-   - [ ] Long press on tab bar to bring up Account view with animation
-   - [ ] Tap account to switch to
-   - [ ] Include a plus button to Add an Account
-   - [ ] Swipe to delete an account
+   - [ ] Allow users to post own images in "View current trends" Tab bar
+   - [ ] Allow users to like an image in the same section
+   - [ ] Sort the images based on number of likes
 - [ ] Users can upload their own music to public music section to be rated
-   - [ ] Long press on tab bar to bring up Account view with animation
-   - [ ] Tap account to switch to
-   - [ ] Include a plus button to Add an Account
-   - [ ] Swipe to delete an account
-   
+   - [ ] Allow users to upload audio files (may be .mp4) into "Listen and rate new music" tab bar
+   - [ ] Play audi file using AVFramework(??) inside the app
 
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-  1.
-  2.
 
 
 ## Video Walkthrough
