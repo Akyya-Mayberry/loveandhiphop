@@ -6,27 +6,45 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] Hamburger menu
+- [ ] Become A Member
    - [ ] Dragging anywhere in the view should reveal the menu.
    - [ ] The menu should include links to your profile, the home timeline, and the mentions view.
    - [ ] The menu can look similar to the example or feel free to take liberty with the UI.
-- [ ] Profile page
+- [ ] Date/Flirt
    - [ ] Contains the user header view
    - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
-- [ ] Home Timeline
+- [ ] Open Chat
+   - [ ] Tapping on a user image should bring up that user's profile page
+- [ ] View current trends in fashion, automotive, etc
+   - [ ] Tapping on a user image should bring up that user's profile page
+- [ ] Listen and rate new music
    - [ ] Tapping on a user image should bring up that user's profile page
 
 The following **optional** features are implemented:
 
-- [ ] Profile Page
+- [ ] Personalize chat/messaging between users
    - [ ] Implement the paging view for the user description.
    - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
    - [ ] Pulling down the profile page should blur and resize the header image.
-- [ ] Account switching
+- [ ] Filters for dating
+   - [ ] Implement the paging view for the user description.
+   - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+   - [ ] Pulling down the profile page should blur and resize the header image.
+- [ ] Events section
+   - [ ] Implement the paging view for the user description.
+   - [ ] As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+   - [ ] Pulling down the profile page should blur and resize the header image.
+- [ ] Users can upload their own images to the public swag section to be rated
    - [ ] Long press on tab bar to bring up Account view with animation
    - [ ] Tap account to switch to
    - [ ] Include a plus button to Add an Account
    - [ ] Swipe to delete an account
+- [ ] Users can upload their own music to public music section to be rated
+   - [ ] Long press on tab bar to bring up Account view with animation
+   - [ ] Tap account to switch to
+   - [ ] Include a plus button to Add an Account
+   - [ ] Swipe to delete an account
+   
 
 
 The following **additional** features are implemented:
