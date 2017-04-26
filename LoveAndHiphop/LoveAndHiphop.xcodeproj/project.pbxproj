@@ -425,6 +425,7 @@
 				22E946B51EAFF3CB00DCEC74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
