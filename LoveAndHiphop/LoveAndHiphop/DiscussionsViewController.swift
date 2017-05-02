@@ -27,6 +27,9 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
       }
     }
     
+    // Set up timer to fetch new messages
+    Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(onTimer), userInfo: nil, repeats: true)
+    
     // MARK: Set Up TableView
     tableView.dataSource = self
     tableView.estimatedRowHeight = 100
@@ -37,16 +40,7 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
     self.navigationController?.navigationBar.addGestureRecognizer(tap)
     
     // MARK: Fetch Messages From Parse
-    let query = PFQuery(className: "Message")
-    query.order(byDescending: "createdAt")
-    query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
-      if error == nil {
-        self.messages = messages
-        self.tableView.reloadData()
-      } else {
-        print("Error getting messages from Parse, error: \(error?.localizedDescription)")
-      }
-    }
+    getMessages()
     
     // MARK: Set Up Refresh Data
     let refreshControl = UIRefreshControl()
@@ -108,6 +102,7 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
         // Save message to parse
         let newMessage = PFObject(className: "Message")
         newMessage["text"] = text
+        newMessage["user"] = PFUser.current()
         newMessage.saveInBackground(block: { (success: Bool, error: Error?) in
           if success {
             // Reset text field and hide keyboard
@@ -115,15 +110,37 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
             composeCell.composeText.resignFirstResponder()
             
             // Update UI to include new message
-            self.messages?.insert(newMessage, at: 0)
-            self.tableView.beginUpdates()
-            self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
-            self.tableView.endUpdates()
-            
+            self.addToTable(newMessage)
           } else {
             print("Error saving message to parse, error: \(error?.localizedDescription)")
           }
         })
+      }
+    }
+  }
+  
+  func onTimer() {
+    // Update messages
+    print("FETCHING SOME DATA!")
+    getMessages()
+  }
+  
+  func addToTable(_ newMessage: PFObject) {
+    self.messages?.insert(newMessage, at: 0)
+    self.tableView.beginUpdates()
+    self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+    self.tableView.endUpdates()
+  }
+  
+  func getMessages() {
+    let query = PFQuery(className: "Message")
+    query.order(byDescending: "createdAt")
+    query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
+      if error == nil {
+        self.messages = messages
+        self.tableView.reloadData()
+      } else {
+        print("Error getting messages from Parse, error: \(error?.localizedDescription)")
       }
     }
   }
@@ -139,12 +156,12 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
    func textFieldDidEndEditing(_ textField: UITextField) {
    view.endEditing(true)
    
-   b. Add timer to refresh new messages as Parse is not real time
-   
    c. Pin compose text field to top on scroll or use a custom chat UI.
    } 
    
    d. Add loading messaging view
+   
+   e. Move Parse calls to Parse client
    
   */
   

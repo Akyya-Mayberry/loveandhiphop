@@ -32,7 +32,6 @@ class ComposeCell: UITableViewCell {
   }
   
   @IBAction func onSend(_ sender: Any) {
-    print("User attempt to send text")
     delegate.ComposeCell(composeCell: self, didTapSend: true)
     
   }

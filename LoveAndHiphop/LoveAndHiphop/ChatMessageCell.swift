@@ -13,6 +13,7 @@ class ChatMessageCell: UITableViewCell {
   
   // MARK: Properties
   @IBOutlet weak var chatMessageText: UILabel!
+  @IBOutlet weak var messageOwnerImageView: UIImageView!
   var message: PFObject! {
     didSet {
       chatMessageText.text = message["text"] as? String
@@ -23,6 +24,7 @@ class ChatMessageCell: UITableViewCell {
     super.awakeFromNib()
     // Initialization code
     chatMessageText.sizeToFit()
+    messageOwnerImageView.image = #imageLiteral(resourceName: "Selfie-50")
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
