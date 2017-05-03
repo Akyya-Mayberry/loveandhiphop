@@ -13,10 +13,14 @@ class ChatMessageCell: UITableViewCell {
   
   // MARK: Properties
   @IBOutlet weak var chatMessageText: UILabel!
+  @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var messageOwnerImageView: UIImageView!
+  
   var message: PFObject! {
     didSet {
       chatMessageText.text = message["text"] as? String
+      let postingUser = message["user"] as! PFUser
+      nameLabel.text = postingUser.username!
     }
   }
   
@@ -24,6 +28,7 @@ class ChatMessageCell: UITableViewCell {
     super.awakeFromNib()
     // Initialization code
     chatMessageText.sizeToFit()
+    chatMessageText.layoutIfNeeded()
     messageOwnerImageView.image = #imageLiteral(resourceName: "Selfie-50")
   }
   

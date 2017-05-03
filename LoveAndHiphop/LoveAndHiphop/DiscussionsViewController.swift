@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeCellDelegate, UITextFieldDelegate {
+class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeCellDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   // MARK: Properties
   @IBOutlet var tableView: UITableView!
@@ -32,7 +32,7 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: Set Up TableView
     tableView.dataSource = self
-    tableView.estimatedRowHeight = 100
+    tableView.estimatedRowHeight = 150
     tableView.rowHeight = UITableViewAutomaticDimension
     
     // Tap on navigation bar to dismiss composing a message (consider proper place to put this)
@@ -81,6 +81,7 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
     // Query Parse for latest chat messages
     let query = PFQuery(className: "Message")
     query.order(byDescending: "createdAt")
+    query.includeKey("user")
     
     query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
       if error == nil {
@@ -102,7 +103,7 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
         // Save message to parse
         let newMessage = PFObject(className: "Message")
         newMessage["text"] = text
-        newMessage["user"] = PFUser.current()
+        newMessage["user"] = PFUser.current() as AnyObject
         newMessage.saveInBackground(block: { (success: Bool, error: Error?) in
           if success {
             // Reset text field and hide keyboard
@@ -135,6 +136,8 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
   func getMessages() {
     let query = PFQuery(className: "Message")
     query.order(byDescending: "createdAt")
+    query.includeKey("user")
+    
     query.findObjectsInBackground { (messages: [PFObject]?, error: Error?) in
       if error == nil {
         self.messages = messages
@@ -149,6 +152,32 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
     self.view.endEditing(true)
   }
   
+  @IBAction func didTapPhotoButton(_ sender: UIButton) {
+    let vc = UIImagePickerController()
+    vc.delegate = self
+    vc.allowsEditing = true
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      print("Camera is available 📸")
+      vc.sourceType = .camera
+    } else {
+      print("Camera is not available so we will use photo library instead")
+      vc.sourceType = .photoLibrary
+    }
+    
+    self.present(vc, animated: true, completion: nil)
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController,
+                             didFinishPickingMediaWithInfo info: [String : Any]) {
+    // Get the image captured by the UIImagePickerController
+    let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+    let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+    
+    // Do something with the images (based on your use case)
+    print("GOT AN IMAGE, \(originalImage)")
+    // Dismiss UIImagePickerController to go back to your original view controller
+    dismiss(animated: true, completion: nil)
+  }
   
   /* TODO:
    
@@ -162,6 +191,8 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
    d. Add loading messaging view
    
    e. Move Parse calls to Parse client
+   
+   f. Handle images loaded from gallery
    
   */
   
