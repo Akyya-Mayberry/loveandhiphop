@@ -18,6 +18,7 @@ class ComposeCell: UITableViewCell {
   // MARK: Properties
   var delegate: ComposeCellDelegate!
   @IBOutlet weak var composeText: UITextField!
+  @IBOutlet weak var cameraButton: UIButton!
   
   override func awakeFromNib() {
     super.awakeFromNib()

@@ -9,11 +9,17 @@
 import UIKit
 import Parse
 
+enum PhotoLocationSelection {
+  case camera
+  case library
+}
+
 class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeCellDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   // MARK: Properties
   @IBOutlet var tableView: UITableView!
   var messages: [PFObject]?
+  var cameraOriginalPostion: CGPoint!
   
   // MARK: ViewDidLoad
   override func viewDidLoad() {
@@ -59,6 +65,10 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "ComposeCell", for: indexPath) as! ComposeCell
       cell.delegate = self
+      
+      // Add a pan recognizer to camera button
+      let pan = UIPanGestureRecognizer(target: self, action: #selector(onCameraPan(_:)))
+      cell.cameraButton.addGestureRecognizer(pan)
       return cell
     }
     
@@ -152,15 +162,57 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
     self.view.endEditing(true)
   }
   
-  @IBAction func didTapPhotoButton(_ sender: UIButton) {
+  // Camera operations are based on pan gestures
+  func onCameraPan(_ sender: UIPanGestureRecognizer){
+    let translation = sender.translation(in: view)
+    let velocity = sender.velocity(in: view)
+    
+    if sender.state == .began {
+      print("begin panning with sender as \(sender)!")
+      cameraOriginalPostion = sender.view?.center
+    } else if sender.state == .changed {
+      let viewHeight = Int((sender.view?.superview?.bounds.height)!)
+      if Int((sender.view?.center.y)!) < viewHeight {
+        sender.view?.center = CGPoint(x: cameraOriginalPostion.x, y: cameraOriginalPostion.y + translation.y)
+        if velocity.y < 0 {
+          print("show helper text that gallery will open")
+        } else {
+          print("show helper text that camera will open")
+        }
+      }
+    } else if sender.state == .ended {
+      sender.view?.center = cameraOriginalPostion
+      var photoLocation = PhotoLocationSelection.library
+      
+      // Panning upward attempts to access users camera,
+      // while panning downwards opens the gallery.
+      // Eventually tapping on camera will display all
+      // camera options in one view.
+      if velocity.y < 0 {
+        print("Will open camera if available")
+        photoLocation = PhotoLocationSelection.camera
+      }
+      getImage(from: photoLocation)
+    }
+  }
+  
+  func getImage(from location: PhotoLocationSelection) {
     let vc = UIImagePickerController()
     vc.delegate = self
     vc.allowsEditing = true
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      print("Camera is available 📸")
-      vc.sourceType = .camera
-    } else {
-      print("Camera is not available so we will use photo library instead")
+    
+    // Get image from the camera or photo library
+    switch location {
+    case .camera:
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        print("Camera is available 📸")
+        vc.sourceType = .camera
+      } else {
+        print("Camera not available!")
+        return
+      }
+    case .library:
+      print("Show library")
       vc.sourceType = .photoLibrary
     }
     
@@ -169,6 +221,7 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
   
   func imagePickerController(_ picker: UIImagePickerController,
                              didFinishPickingMediaWithInfo info: [String : Any]) {
+    
     // Get the image captured by the UIImagePickerController
     let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
     let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
@@ -186,14 +239,15 @@ class DiscussionsViewController: UIViewController, UITableViewDelegate, UITableV
    view.endEditing(true)
    
    c. Pin compose text field to top on scroll or use a custom chat UI.
-   } 
+   }
    
    d. Add loading messaging view
    
    e. Move Parse calls to Parse client
    
-   f. Handle images loaded from gallery
+   f. Handle images loaded from gallery (likely follow whatever is
+   done in new account set up profile photo.
    
-  */
+   */
   
 }
