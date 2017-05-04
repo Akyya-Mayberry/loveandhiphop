@@ -186,8 +186,7 @@
 				TargetAttributes = {
 					22E9469E1EAFF3CB00DCEC74 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 48HK3M9PGT;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -417,7 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LoveAndHiphop/LoveAndHiphop.entitlements;
-				DEVELOPMENT_TEAM = 48HK3M9PGT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LoveAndHiphop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -433,7 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LoveAndHiphop/LoveAndHiphop.entitlements;
-				DEVELOPMENT_TEAM = 48HK3M9PGT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LoveAndHiphop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
