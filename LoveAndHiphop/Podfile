@@ -7,5 +7,8 @@ target 'LoveAndHiphop' do
     pod 'AFNetworking'
     pod 'Parse'
   # Pods for LoveAndHiphop
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
 end
