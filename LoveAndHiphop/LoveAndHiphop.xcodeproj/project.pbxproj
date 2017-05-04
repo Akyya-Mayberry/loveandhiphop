@@ -18,8 +18,6 @@
 		22E946BE1EAFF4A300DCEC74 /* TopMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E946BD1EAFF4A300DCEC74 /* TopMusicViewController.swift */; };
 		22E946C01EB0669700DCEC74 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E946BF1EB0669700DCEC74 /* SongCell.swift */; };
 		22E946C21EB074F600DCEC74 /* Drake-song1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 22E946C11EB074F600DCEC74 /* Drake-song1.mp3 */; };
-		AB07AFF91EB86AF800C53D97 /* ComposeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07AFF81EB86AF800C53D97 /* ComposeCell.swift */; };
-		AB07AFFB1EB86B1500C53D97 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07AFFA1EB86B1500C53D97 /* ChatMessageCell.swift */; };
 		AB8A14C61EB27CBB00F5AF32 /* QuizPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A14C51EB27CBB00F5AF32 /* QuizPageViewController.swift */; };
 		AB8A14CE1EB28C2500F5AF32 /* SubmitQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A14CD1EB28C2500F5AF32 /* SubmitQuizViewController.swift */; };
 		ABF69D7A1EB1BC4C009FDEB9 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF69D791EB1BC4C009FDEB9 /* QuizTableViewController.swift */; };
@@ -41,8 +39,6 @@
 		22E946BF1EB0669700DCEC74 /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		22E946C11EB074F600DCEC74 /* Drake-song1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Drake-song1.mp3"; sourceTree = "<group>"; };
 		6AAB059B2B94063B11C01C8D /* Pods-LoveAndHiphop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveAndHiphop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoveAndHiphop/Pods-LoveAndHiphop.debug.xcconfig"; sourceTree = "<group>"; };
-		AB07AFF81EB86AF800C53D97 /* ComposeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeCell.swift; sourceTree = "<group>"; };
-		AB07AFFA1EB86B1500C53D97 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		AB8A14C51EB27CBB00F5AF32 /* QuizPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizPageViewController.swift; sourceTree = "<group>"; };
 		AB8A14CD1EB28C2500F5AF32 /* SubmitQuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitQuizViewController.swift; sourceTree = "<group>"; };
 		ABF69D791EB1BC4C009FDEB9 /* QuizTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				22E946BF1EB0669700DCEC74 /* SongCell.swift */,
-				AB07AFF81EB86AF800C53D97 /* ComposeCell.swift */,
-				AB07AFFA1EB86B1500C53D97 /* ChatMessageCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -295,9 +289,7 @@
 				22E946A51EAFF3CB00DCEC74 /* MatchesViewController.swift in Sources */,
 				22E946BC1EAFF48500DCEC74 /* HotFashionsViewController.swift in Sources */,
 				22E946C01EB0669700DCEC74 /* SongCell.swift in Sources */,
-				AB07AFFB1EB86B1500C53D97 /* ChatMessageCell.swift in Sources */,
 				22E946BE1EAFF4A300DCEC74 /* TopMusicViewController.swift in Sources */,
-				AB07AFF91EB86AF800C53D97 /* ComposeCell.swift in Sources */,
 				AB8A14CE1EB28C2500F5AF32 /* SubmitQuizViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

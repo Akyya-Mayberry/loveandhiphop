@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
-    <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NJT-1a-sxs">
     <dependencies>
         <deployment identifier="iOS"/>
@@ -54,116 +47,13 @@
         <!--Discussions View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="DiscussionsViewController" id="8rJ-Kc-sve" customClass="DiscussionsViewController" customModule="LoveAndHiphop" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oad-Hg-2Tv">
+                <viewController id="8rJ-Kc-sve" customClass="DiscussionsViewController" customModule="LoveAndHiphop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ComposeCell" rowHeight="103" id="sDP-3a-F92" customClass="ComposeCell" customModule="LoveAndHiphop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="103"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sDP-3a-F92" id="6YA-kt-Y9E">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="755" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jp5-2r-azL">
-                                            <rect key="frame" x="8" y="8" width="305" height="30"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qER-fs-qJQ">
-                                            <rect key="frame" x="326" y="8" width="36" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="6E8-El-kCt"/>
-                                                <constraint firstAttribute="width" constant="36" id="NQH-Ke-nKD"/>
-                                            </constraints>
-                                            <state key="normal" title="Send"/>
-                                            <connections>
-                                                <action selector="onSend:" destination="sDP-3a-F92" eventType="touchUpInside" id="ACX-bH-ttz"/>
-                                            </connections>
-                                        </button>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrq-y7-WQq">
-                                            <rect key="frame" x="4" y="48" width="100" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9G-MC-EF7">
-                                            <rect key="frame" x="10" y="43" width="30" height="30"/>
-                                            <gestureRecognizers/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="7Jg-0h-xzk"/>
-                                                <constraint firstAttribute="height" constant="30" id="H4W-Uv-5Ff"/>
-                                            </constraints>
-                                            <state key="normal" image="camera"/>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="qER-fs-qJQ" secondAttribute="trailing" constant="13" id="UsS-8n-p1b"/>
-                                        <constraint firstItem="Z9G-MC-EF7" firstAttribute="top" secondItem="jp5-2r-azL" secondAttribute="bottom" constant="5" id="W8N-dv-e56"/>
-                                        <constraint firstItem="jp5-2r-azL" firstAttribute="top" secondItem="6YA-kt-Y9E" secondAttribute="top" constant="8" id="bSh-QX-CLm"/>
-                                        <constraint firstItem="qER-fs-qJQ" firstAttribute="leading" secondItem="jp5-2r-azL" secondAttribute="trailing" constant="13" id="bzu-T3-ElV"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z9G-MC-EF7" secondAttribute="bottom" constant="10" id="ljA-Kj-ZSP"/>
-                                        <constraint firstItem="jp5-2r-azL" firstAttribute="leading" secondItem="6YA-kt-Y9E" secondAttribute="leading" constant="8" id="pIv-YE-pSu"/>
-                                        <constraint firstItem="qER-fs-qJQ" firstAttribute="top" secondItem="6YA-kt-Y9E" secondAttribute="top" constant="8" id="xPD-NC-yLF"/>
-                                        <constraint firstItem="Z9G-MC-EF7" firstAttribute="leading" secondItem="6YA-kt-Y9E" secondAttribute="leading" constant="10" id="yn9-Ux-g8O"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cameraButton" destination="Z9G-MC-EF7" id="cT0-Mw-z1g"/>
-                                    <outlet property="composeText" destination="jp5-2r-azL" id="Opd-BZ-yd4"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatMessageCell" rowHeight="144" id="B0A-dZ-fyf" customClass="ChatMessageCell" customModule="LoveAndHiphop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="131" width="375" height="144"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B0A-dZ-fyf" id="kdy-xg-qKc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="753" text="When the new J's come out?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mC-cH-QBH">
-                                            <rect key="frame" x="70" y="35.5" width="286" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="2Fu-zb-aLO">
-                                            <rect key="frame" x="10" y="35.5" width="50" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="7Tl-6Q-58Z"/>
-                                                <constraint firstAttribute="width" constant="50" id="y1B-Dl-CtQ"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Jman" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyH-7z-soL">
-                                            <rect key="frame" x="10" y="10" width="57" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="dyH-7z-soL" firstAttribute="top" secondItem="kdy-xg-qKc" secondAttribute="top" constant="10" id="BIT-Mz-lYJ"/>
-                                        <constraint firstItem="2Fu-zb-aLO" firstAttribute="top" secondItem="dyH-7z-soL" secondAttribute="bottom" constant="5" id="BQF-3t-Q8b"/>
-                                        <constraint firstItem="0mC-cH-QBH" firstAttribute="leading" secondItem="2Fu-zb-aLO" secondAttribute="trailing" constant="10" id="Efg-rw-a0k"/>
-                                        <constraint firstItem="dyH-7z-soL" firstAttribute="leading" secondItem="kdy-xg-qKc" secondAttribute="leading" constant="10" id="Yuz-kc-DlF"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Fu-zb-aLO" secondAttribute="bottom" constant="10" id="d6k-5k-U12"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0mC-cH-QBH" secondAttribute="bottom" constant="10" id="rGJ-ui-PuP"/>
-                                        <constraint firstItem="2Fu-zb-aLO" firstAttribute="leading" secondItem="kdy-xg-qKc" secondAttribute="leading" constant="10" id="vK7-fG-8s5"/>
-                                        <constraint firstItem="0mC-cH-QBH" firstAttribute="top" secondItem="2Fu-zb-aLO" secondAttribute="top" id="zDg-LA-kqd"/>
-                                        <constraint firstAttribute="trailing" secondItem="0mC-cH-QBH" secondAttribute="trailing" constant="19" id="zcs-7T-Fh7"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="chatMessageText" destination="0mC-cH-QBH" id="VB4-rt-OVT"/>
-                                    <outlet property="messageOwnerImageView" destination="2Fu-zb-aLO" id="GxJ-ig-7ib"/>
-                                    <outlet property="nameLabel" destination="dyH-7z-soL" id="iu0-Q9-9jc"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Discussions View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
@@ -187,16 +77,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XTR-fd-T6s"/>
-                    <connections>
-                        <outlet property="tableView" destination="oad-Hg-2Tv" id="Oqq-Gu-27A"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="OnR-Ja-d9Q">
-                    <connections>
-                        <action selector="onCameraPan:" destination="8rJ-Kc-sve" id="dJe-K9-Geo"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6444" y="-233.43328335832086"/>
         </scene>
@@ -705,6 +587,5 @@
         <image name="Rock Music Filled-50" width="25" height="25"/>
         <image name="Selfie Filled-50" width="25" height="25"/>
         <image name="Stop Filled-50" width="25" height="25"/>
-        <image name="camera" width="64" height="64"/>
     </resources>
 </document>
